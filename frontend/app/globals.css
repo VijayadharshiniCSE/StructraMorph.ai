@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased min-h-screen transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-cyber-bg text-cyber-text selection:bg-cyan-500/30 selection:text-cyan-300;
+  }
+
+  .light body {
+    @apply bg-light-bg text-light-text selection:bg-purple-500/20 selection:text-purple-700;
+  }
+}
+
+/* Background image styling for light and dark themes */
+.app-bg-dark {
+  background-color: #080B11;
+  background-image: 
+    linear-gradient(to bottom, rgba(8, 11, 17, 0.78), rgba(13, 19, 31, 0.86)),
+    url('/bg-dark.png'),
+    url('http://localhost:8000/api/assets/bg-dark.png'),
+    radial-gradient(ellipse at 50% 95%, rgba(249, 115, 22, 0.25) 0%, transparent 60%),
+    radial-gradient(circle at 25% 30%, rgba(6, 182, 212, 0.18) 0%, transparent 50%),
+    linear-gradient(135deg, #080B11 0%, #0D131F 100%);
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.app-bg-light {
+  background-color: #F8F9FD;
+  background-image: 
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.72), rgba(248, 249, 253, 0.82)),
+    url('/bg-light.png'),
+    url('http://localhost:8000/api/assets/bg-light.png'),
+    radial-gradient(circle at 20% 30%, rgba(168, 85, 247, 0.16) 0%, transparent 55%),
+    radial-gradient(circle at 80% 25%, rgba(6, 182, 212, 0.14) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(244, 114, 182, 0.12) 0%, transparent 55%),
+    linear-gradient(135deg, #FFFFFF 0%, #F8F9FD 100%);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@layer utilities {
+  /* Scrollbars */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .dark .scrollbar-thin::-webkit-scrollbar-track {
+    background: #0D131F;
+  }
+  .light .scrollbar-thin::-webkit-scrollbar-track {
+    background: #F1F4F9;
+  }
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #1E2A42;
+    border-radius: 9999px;
+  }
+  .light .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #CBD5E1;
+    border-radius: 9999px;
+  }
+
+  /* Glassmorphism */
+  .glass-panel-dark {
+    background: rgba(13, 19, 31, 0.78);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(30, 42, 66, 0.8);
+  }
+
+  .glass-panel-light {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 4px 24px -2px rgba(147, 51, 234, 0.06);
+  }
+
+  /* Diff styles */
+  .diff-del {
+    background-color: rgba(244, 63, 94, 0.18);
+    color: #FDA4AF;
+    text-decoration: line-through;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin: 0 1px;
+    border: 1px solid rgba(244, 63, 94, 0.3);
+  }
+
+  .diff-add {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #6EE7B7;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin: 0 1px;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    font-weight: 500;
+  }
+
+  .light .diff-del {
+    background-color: rgba(244, 63, 94, 0.12);
+    color: #BE123C;
+    border-color: rgba(244, 63, 94, 0.25);
+  }
+
+  .light .diff-add {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: #047857;
+    border-color: rgba(16, 185, 129, 0.3);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s infinite ease-in-out;
+}

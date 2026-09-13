@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+*/node_modules/
+.venv/
+*/.venv/
+env/
+venv/
+ENV/
+
+# Python
+__pycache__/
+*/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Next.js / Frontend
+frontend/.next/
+.next/
+out/
+build/
+dist/
+
+# Environment variables
+.env
+.env*.local
+!.env.example
+
+# IDEs & System files
+powershell.cmd
+*/powershell.cmd
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
