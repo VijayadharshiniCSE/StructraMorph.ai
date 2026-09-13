@@ -1,0 +1,19 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+pydantic==2.9.2
+
+# Document Parsing
+pdfplumber==0.11.4
+python-docx==1.1.2
+pytesseract==0.3.13
+Pillow==10.4.0
+
+# Document Recompilation & Export
+reportlab>=4.0.0
+
+# AI Provider Integration
+openai==1.51.0
+
+# Storage & Utilities
+tinydb==4.8.0
