@@ -353,11 +353,13 @@ def export_document(req: ExportRequest):
     )
 
 
+@app.get("/")
+@app.get("/health")
 @app.get("/api/health")
 def health():
     return {
         "status": "healthy",
-        "service": "DocSurgical AI",
+        "service": "StructraMorph.ai API",
         "version": "2.0.0",
         "active_documents": len(STORE),
     }
