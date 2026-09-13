@@ -16,6 +16,14 @@ export default function BrandLogo({
 }: BrandLogoProps) {
   const [hasError, setHasError] = useState(false);
 
+  const computedStyle: React.CSSProperties = {
+    maxWidth: size ? size : "100%",
+    maxHeight: size ? size : "100%",
+    objectFit: "contain",
+    display: "inline-block",
+    ...(size ? { width: size, height: size } : {}),
+  };
+
   if (hasError) {
     // High-fidelity SVG fallback representing StructraMorph Component Graph
     return (
@@ -24,7 +32,7 @@ export default function BrandLogo({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
-        style={size ? { width: size, height: size } : undefined}
+        style={computedStyle}
       >
         <defs>
           <linearGradient id="smGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -60,7 +68,7 @@ export default function BrandLogo({
       alt={alt}
       onError={() => setHasError(true)}
       className={className}
-      style={size ? { width: size, height: size } : undefined}
+      style={computedStyle}
       loading="eager"
     />
   );

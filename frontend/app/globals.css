@@ -1,19 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  html {
+    color-scheme: dark;
+  }
+  html.light {
+    color-scheme: light;
+  }
+
   body {
     @apply font-sans antialiased min-h-screen transition-colors duration-300;
   }
 
-  .dark body {
+  html.dark body,
+  .dark body,
+  [data-theme="dark"] body {
     @apply bg-cyber-bg text-cyber-text selection:bg-cyan-500/30 selection:text-cyan-300;
   }
 
-  .light body {
+  html.light body,
+  .light body,
+  [data-theme="light"] body {
     @apply bg-light-bg text-light-text selection:bg-purple-500/20 selection:text-purple-700;
   }
 }
